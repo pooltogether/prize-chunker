@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "test": "hardhat test"
+    "test": "hardhat test",
+    "deploy": "hardhat deploy --write true --network"
   },
   "dependencies": {
     "@pooltogether/pooltogether-contracts": "^3.3.7"

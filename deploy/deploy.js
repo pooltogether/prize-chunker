@@ -30,10 +30,11 @@ module.exports = async (hardhat) => {
       contract: "PrizeChunker",
       args: [
         dai,
-        ethers.utils.parseEther('100'),
+        ethers.utils.parseEther('482.14285714285717'),
         maticDaiPrizeStrategy
       ],
-      skipIfAlreadyDeployed: true
+      skipIfAlreadyDeployed: true,
+      from: deployer
     })
   }
 }
