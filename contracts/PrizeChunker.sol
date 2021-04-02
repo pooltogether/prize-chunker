@@ -8,9 +8,9 @@ contract PrizeChunker is PeriodicPrizeStrategyListener {
 
   event AddedPrizeChunk(uint256 prize);
 
-  IERC20Upgradeable token;
-  uint256 prizeSize;
-  PeriodicPrizeStrategy prizeStrategy;
+  IERC20Upgradeable public token;
+  uint256 public prizeSize;
+  PeriodicPrizeStrategy public prizeStrategy;
 
   constructor (IERC20Upgradeable _token, uint256 _prizeSize, PeriodicPrizeStrategy _prizeStrategy) public {
     require(address(_token) != address(0), "PrizeChunker/token-not-def");

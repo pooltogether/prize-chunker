@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "test": "hardhat test",
-    "deploy": "hardhat deploy --write true --network"
+    "deploy": "hardhat deploy --write true --network",
+    "clean": "rm -rf artifacts build .build-openzeppelin cache coverage coverage.json test-results.xml .cache-openzeppelin abis deployments/localhost deployments/localhost_*"
   },
   "dependencies": {
     "@pooltogether/pooltogether-contracts": "^3.3.7"
