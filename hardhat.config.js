@@ -32,9 +32,20 @@ const config = {
     dai: {
       137: '0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063'
     },
+    badger: {
+      1: '0x3472A5A71965499acd81997a54BBA8D852C6E53d'
+    },
+    badgerPrizeStrategy: {
+      1: '0xbE85339D8Cc7fDd6C949dA660a691d201A576876'
+    },
     maticDaiPrizeStrategy: {
       137: '0x07591c981e86dd361101ab088f0f21e9d5b371ab'
     }
+  },
+  etherscan: {
+    // Your API key for Etherscan
+    // Obtain one at https://etherscan.io/
+    apiKey: process.env.ETHERSCAN_API_KEY
   },
   mocha: {
     timeout: 30000
