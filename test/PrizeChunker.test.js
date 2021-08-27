@@ -26,6 +26,20 @@ describe('PrizeChunker', () => {
     token = await hardhat.ethers.getContract('Token', wallet)
 
     chunker = await PrizeChunkerFactory.deploy(token.address, toWei('10'), prizeStrategy.address)
+
+    expect(await chunker.owner()).to.equal(wallet.address)
+  })
+
+  describe('setPrizeSize', async () => {
+    it('should set the prize size', async () => {
+      await expect(chunker.setPrizeSize(toWei('100'))).to.emit(chunker, 'PrizeSizeSet').withArgs(toWei('100'))
+
+      expect(await chunker.prizeSize()).to.equal(toWei('100'))
+    })
+
+    it('should only allow the owner', async () => {
+      await expect(chunker.connect(wallet2).setPrizeSize(toWei('0'))).to.be.revertedWith('Ownable: caller is not the owner')
+    })
   })
 
   it('should work when no balance', async () => {

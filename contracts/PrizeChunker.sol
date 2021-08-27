@@ -1,12 +1,14 @@
 pragma solidity >=0.6.0;
 
+import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol";
 import "@pooltogether/pooltogether-contracts/contracts/prize-strategy/PeriodicPrizeStrategyListener.sol";
 import "@pooltogether/pooltogether-contracts/contracts/prize-strategy/PeriodicPrizeStrategy.sol";
 
-contract PrizeChunker is PeriodicPrizeStrategyListener {
+contract PrizeChunker is OwnableUpgradeable, PeriodicPrizeStrategyListener {
 
   event AddedPrizeChunk(uint256 prize);
+  event PrizeSizeSet(uint256 newSize);
 
   IERC20Upgradeable public token;
   uint256 public prizeSize;
@@ -17,9 +19,17 @@ contract PrizeChunker is PeriodicPrizeStrategyListener {
     require(_prizeSize > 0, "PrizeChunker/prize-gt-zero");
     require(address(_prizeStrategy) != address(0), "PrizeChunker/prize-strat-not-def");
 
+    __Ownable_init();
+
     token = _token;
     prizeSize = _prizeSize;
     prizeStrategy = _prizeStrategy;
+  }
+
+  function setPrizeSize(uint256 _prizeSize) external onlyOwner {
+    prizeSize = _prizeSize;
+
+    emit PrizeSizeSet(_prizeSize);
   }
 
   function afterPrizePoolAwarded(uint256 randomNumber, uint256 prizePeriodStartedAt) external override onlyPrizeStrategy {

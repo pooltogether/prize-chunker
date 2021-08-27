@@ -29,6 +29,12 @@ const config = {
     deployer: {
       default: 0
     },
+    mask: {
+      137: '0x2b9e7ccdf0f4e5b24757c1e1a80e311e34cb10c7'
+    },
+    maskPrizeStrategy: {
+      137: '0xA4B640153B1ff00CF6f16b1CD549cDAe0CA086bf'
+    },
     dai: {
       137: '0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063'
     },
@@ -40,6 +46,15 @@ const config = {
     },
     maticDaiPrizeStrategy: {
       137: '0x07591c981e86dd361101ab088f0f21e9d5b371ab'
+    },
+    celo: {
+      42220: '0x471EcE3750Da237f93B8E339c536989b8978a438'
+    },
+    cUSDPrizeStrategy: {
+      42220: '0x56837090Bb659ee4E468aE22eb97E17CDF829F9F'
+    },
+    cEURPrizeStrategy: {
+      42220: '0xc935142EEF56F2467e2BAA8D1821F6d9178320c7'
     }
   },
   etherscan: {

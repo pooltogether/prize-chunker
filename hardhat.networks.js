@@ -102,6 +102,23 @@ if (process.env.INFURA_API_KEY && process.env.HDWALLET_MNEMONIC) {
       mnemonic: process.env.HDWALLET_MNEMONIC
     }
   }
+
+  networks.celo = {
+    chainId: 42220,
+    url: 'https://forno.celo.org',
+    accounts: {
+      mnemonic: process.env.HDWALLET_MNEMONIC
+    }
+  }
+  
+  networks.celoTestnet = {
+    chainId: 44787,
+    url: 'https://alfajores-forno.celo-testnet.org',
+    accounts: {
+      mnemonic: process.env.HDWALLET_MNEMONIC
+    }
+  }
+
 } else {
   console.warn('No infura or hdwallet available for testnets')
 }
