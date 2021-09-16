@@ -47,6 +47,9 @@ const config = {
     maticDaiPrizeStrategy: {
       137: '0x07591c981e86dd361101ab088f0f21e9d5b371ab'
     },
+    geminiPrizeStrategy: {
+      1: '0x821cF440654addD81493e1949F9ee078D65bb57f'
+    },
     celo: {
       42220: '0x471EcE3750Da237f93B8E339c536989b8978a438'
     },
@@ -55,6 +58,9 @@ const config = {
     },
     cEURPrizeStrategy: {
       42220: '0xc935142EEF56F2467e2BAA8D1821F6d9178320c7'
+    },
+    tcap: {
+      1: '0x16c52CeeCE2ed57dAd87319D91B5e3637d50aFa4'
     }
   },
   etherscan: {

@@ -14,7 +14,9 @@ module.exports = async (hardhat) => {
     maskPrizeStrategy,
     maticDaiPrizeStrategy,
     badger,
-    badgerPrizeStrategy
+    badgerPrizeStrategy,
+    geminiPrizeStrategy,
+    tcap
   } = await getNamedAccounts()
   const chainId = parseInt(await getChainId(), 10)
   // 31337 is unit testing, 1337 is for coverage
@@ -88,6 +90,17 @@ module.exports = async (hardhat) => {
         badger,
         ethers.utils.parseEther('200'),
         badgerPrizeStrategy        
+      ],
+      skipIfAlreadyDeployed: true,
+      from: deployer
+    })
+
+    await deploy("GeminiTcapPrizeChunker", {
+      contract: "PrizeChunker",
+      args: [
+        tcap,
+        ethers.utils.parseEther('1.5'),
+        geminiPrizeStrategy        
       ],
       skipIfAlreadyDeployed: true,
       from: deployer
