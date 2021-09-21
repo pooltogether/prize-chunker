@@ -11,6 +11,8 @@ module.exports = async (hardhat) => {
     deployer,
     dai,
     mask,
+    pool,
+    poolPoolPrizeStrategy,
     maskPrizeStrategy,
     maticDaiPrizeStrategy,
     badger,
@@ -84,6 +86,17 @@ module.exports = async (hardhat) => {
   }
 
   if (isMainnet) {
+    await deploy("PoolPoolPrizeChunker", {
+      contract: "PrizeChunker",
+      args: [
+        pool,
+        ethers.utils.parseEther('200'),
+        poolPoolPrizeStrategy        
+      ],
+      skipIfAlreadyDeployed: true,
+      from: deployer
+    })
+
     await deploy("BadgerPrizeChunker", {
       contract: "PrizeChunker",
       args: [

@@ -61,6 +61,12 @@ const config = {
     },
     tcap: {
       1: '0x16c52CeeCE2ed57dAd87319D91B5e3637d50aFa4'
+    },
+    pool: {
+      1: '0x0cEC1A9154Ff802e7934Fc916Ed7Ca50bDE6844e'
+    },
+    poolPoolPrizeStrategy: {
+      1: '0x21E5E62e0B6B59155110cD36F3F6655FBbCF6424'
     }
   },
   etherscan: {
